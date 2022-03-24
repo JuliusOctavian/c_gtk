@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.8.2 -->
+<interface>
+  <!-- interface-name window.ui -->
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkApplicationWindow" id="window">
+    <property name="default-height">360</property>
+    <property name="default-width">720</property>
+    <property name="destroy-with-parent">True</property>
+    <property name="halign">baseline</property>
+    <property name="height-request">0</property>
+    <property name="show-menubar">True</property>
+    <property name="valign">baseline</property>
+    <child>
+      <object class="GtkBox">
+        <property name="halign">baseline</property>
+        <property name="height-request">0</property>
+        <property name="homogeneous">True</property>
+        <property name="orientation">vertical</property>
+        <property name="overflow">hidden</property>
+        <property name="spacing">15</property>
+        <property name="valign">baseline</property>
+        <child>
+          <object class="GtkBox">
+            <property name="halign">baseline</property>
+            <property name="homogeneous">True</property>
+            <property name="valign">baseline</property>
+            <child>
+              <object class="GtkButton" id="l_btn">
+                <property name="label">Left</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="m_btn">
+                <property name="label">Middle</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="r_btn">
+                <property name="label">Right</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label">
+            <property name="height-request">1</property>
+            <property name="justify">center</property>
+            <property name="lines">1</property>
+            <property name="max-width-chars">1</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

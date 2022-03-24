@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <gtk/gtk.h>
 #include <pthread.h>
-#include <unistd.h>
+#include <gtk/gtk.h>
 
 int g_number = 0;
 
@@ -13,20 +12,7 @@ GtkApplicationWindow *window;
 GtkButton *l_btn, *m_btn, *r_btn;
 GtkLabel *label;
 
-void counter1(void *args) {
-    int i = 0;
-    while (i < MAX_COUNT) {
-        if (g_number == MAX_COUNT / 2) {
-            pthread_join(t2, NULL);
-        }
-        g_number++;
-        printf("hi,i am pthread 1, my g_number is [%d]\n", g_number);
-        usleep(1000 * 100);
-        i++;
-    }
-}
-
-void counter2(void *args) {
+void *counter(void *args) {
     int j = 0;
     char text[64];
     while (j < MAX_COUNT) {
@@ -38,12 +24,10 @@ void counter2(void *args) {
     }
 
     gtk_widget_set_sensitive(GTK_WIDGET(l_btn), TRUE);
-
 }
 
 void multi_thread() {
-//    pthread_create(&t1, NULL, counter1, NULL);
-    int res = pthread_create(&t2, NULL, counter2, NULL);
+    pthread_create(&t2, NULL, counter, NULL);
 }
 
 void on_l_btn_click() {

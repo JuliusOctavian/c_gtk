@@ -12,7 +12,7 @@ void on_check_button_change(GtkCheckButton *button) {
 }
 
 void on_scale_button_change(GtkScale *scale) {
-    g_print("scale button changed:%f.\n", gtk_range_get_value(scale));
+    g_print("scale button changed:%f.\n", gtk_range_get_value(GTK_RANGE(scale)));
 }
 
 void on_spin_button_change(GtkSpinButton *button) {
@@ -24,9 +24,7 @@ void on_combobox_change(GtkComboBoxText *box) {
 }
 
 void on_entry_change(GtkEntry *entry) {
-//    GtkEntryBuffer *buffer = gtk_entry_get_buffer(entry);
-//    g_print("drop button changed:%s.\n", gtk_entry_buffer_get_text(buffer));
-    g_print("drop button changed:%s.\n", gtk_editable_get_text(entry));
+    g_print("drop button changed:%s.\n", gtk_editable_get_text(GTK_EDITABLE(entry)));
 }
 
 void on_activate(GtkApplication *app) {
